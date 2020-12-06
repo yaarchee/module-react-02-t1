@@ -5,10 +5,14 @@ export default function Statistic({ statistics, total, positivePercentage }) {
   return (
     <ul>
       {statistics.map((stat) => (
-        <li className={styles.statisticItem}>{stat.join(" ")}</li>
+        <li key={stat} className={styles.statisticItem}>
+          {stat.join(" ")}
+        </li>
       ))}
-      <li className={styles.statisticItem}>Total: {total}</li>
-      <li className={styles.statisticItem}>
+      <li key={total} className={styles.statisticItem}>
+        Total: {total}
+      </li>
+      <li key={positivePercentage} className={styles.statisticItem}>
         Positive FeedBack: {positivePercentage}%
       </li>
     </ul>

@@ -21,12 +21,12 @@ export default class App extends Component {
     });
   };
 
-  onTotalState() {
+  onTotalStatCount() {
     return Object.values(this.state).reduce((acc, value) => acc + value, 0);
   }
 
   positivePercentage() {
-    return ((this.state.good / this.onTotalState()) * 100).toFixed(2);
+    return ((this.state.good / this.onTotalStatCount()) * 100).toFixed(2);
   }
 
   onStatistics() {
@@ -46,10 +46,10 @@ export default class App extends Component {
 
         <Sections>
           <h2>Statistics:</h2>
-          {this.onTotalState() ? (
+          {this.onTotalStatCount() ? (
             <Statistics
               statistics={this.onStatistics()}
-              total={this.onTotalState()}
+              total={this.onTotalStatCount()}
               positivePercentage={this.positivePercentage()}
             />
           ) : (
